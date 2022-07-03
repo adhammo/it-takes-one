@@ -51,8 +51,8 @@ Puzzles and combat game based on cooperation theme.
 
 ## Links
 
-[EIFG Website](https://www.eigf.net/ar/gamejam)
-[EIFG itch.io](https://itch.io/jam/eigf-gamejam)
-[Sketchfab Models](https://sketchfab.com/)
-[Kenny Assets](https://kenney.nl/)
-[Poly Haven Textures](https://polyhaven.com/)
+- [EIFG Website](https://www.eigf.net/ar/gamejam)
+- [EIFG itch.io](https://itch.io/jam/eigf-gamejam)
+- [Sketchfab Models](https://sketchfab.com/)
+- [Kenny Assets](https://kenney.nl/)
+- [Poly Haven Textures](https://polyhaven.com/)
