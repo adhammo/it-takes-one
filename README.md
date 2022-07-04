@@ -7,29 +7,12 @@ Puzzles and combat game based on cooperation theme.
 - Windows 10
 - Unity 2021.3.2f1
 
-## TODO
+## Packages
 
-### Urgent
-
-- Nothing
-
-### Normal
-
-- Nothing
-
-## Tasks
-
-### Adham
-
-- Nothing
-
-### Tarek
-
-- Nothing
-
-### Zozo
-
-- Nothing
+- URP
+- Cinemachine
+- Pro Builder
+- Input System
 
 ## Ideas
 
