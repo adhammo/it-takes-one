@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2180752700701433508}
   - component: {fileID: 2180752700701433511}
   - component: {fileID: 2180752700701433510}
+  - component: {fileID: 1298949114}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -114,6 +115,20 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 2837191539886020211}
   TopClamp: 80
   BottomClamp: -70
+  Anim: {fileID: 5419829314077423248}
+--- !u!114 &1298949114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180752700701433505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f90ab004de8464f8f7f4d024142765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackTimeout: 1
   Anim: {fileID: 5419829314077423248}
 --- !u!1 &2837191539886020211
 GameObject:

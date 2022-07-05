@@ -8,22 +8,22 @@ ModelImporter:
     second: Idle
   - first:
       74: 6000966782507051935
-    second: Tomahawk_ATK1(no hit)
+    second: Atk1
   - first:
       74: -3031775066182894453
-    second: Tomahawk_ATK2(hit)
+    second: Atk2Hit
   - first:
       74: 5368271670874565442
     second: Tomahawk_ATK1+ATK2(hit)
   - first:
       74: 5419803543349899146
-    second: Tomahawk_ATK1(hit)
+    second: Atk1Hit
   - first:
       74: 7214850103754133261
     second: Tomahawk_ATK1+ATK2(no hit)
   - first:
       74: -7773645758666686436
-    second: Tomahawk_ATK2(no hit)
+    second: Atk2
   - first:
       74: 4160141895498564134
     second: Tomahawk_JUMP
@@ -111,7 +111,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tomahawk_ATK1(no hit)
+      name: Atk1
       takeName: Tomahawk_ATK1(no hit)
       internalID: 0
       firstFrame: 0
@@ -140,7 +140,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tomahawk_ATK2(hit)
+      name: Atk2Hit
       takeName: Tomahawk_ATK2(hit)
       internalID: 0
       firstFrame: 0
@@ -198,7 +198,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tomahawk_ATK1(hit)
+      name: Atk1Hit
       takeName: Tomahawk_ATK1(hit)
       internalID: 0
       firstFrame: 0
@@ -256,7 +256,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tomahawk_ATK2(no hit)
+      name: Atk2
       takeName: Tomahawk_ATK2(no hit)
       internalID: 0
       firstFrame: 0

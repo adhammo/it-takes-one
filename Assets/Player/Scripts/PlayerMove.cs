@@ -67,6 +67,7 @@ public class PlayerMove : MonoBehaviour
     private float _stickingVelocity = -2.0f;
 
     // timeout deltatime
+    private bool _hasJumped;
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
 
@@ -74,6 +75,7 @@ public class PlayerMove : MonoBehaviour
     private int _moveAnimHash = Animator.StringToHash("Move");
     private int _runAnimHash = Animator.StringToHash("Run");
     private int _fallAnimHash = Animator.StringToHash("Fall");
+    private int _jumpAnimHash = Animator.StringToHash("Jump");
     private int _groundAnimHash = Animator.StringToHash("Ground");
 
     private PlayerInput _playerInput;
@@ -87,6 +89,7 @@ public class PlayerMove : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
 
         // reset our timeouts on start
+        _hasJumped = false;
         _jumpTimeoutDelta = JumpTimeout;
         _fallTimeoutDelta = FallTimeout;
     }
@@ -160,15 +163,21 @@ public class PlayerMove : MonoBehaviour
             {
                 _jumpTimeoutDelta -= Time.deltaTime;
             }
-            else if (_jump)
+            else if (!_hasJumped && _jump)
             {
+                _hasJumped = true;
+
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
                 _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                
+                // set animator jump
+                Anim.SetTrigger(_jumpAnimHash);
             }
         }
         else
         {
             // reset the jump timeout timer
+            _hasJumped = false;
             _jumpTimeoutDelta = JumpTimeout;
 
             // fall timeout
@@ -179,7 +188,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         // set animator fall
-        Anim.SetFloat(_fallAnimHash, _verticalVelocity);
+        Anim.SetBool(_fallAnimHash, _fallTimeoutDelta <= 0);
     }
 
     private void Movement()
