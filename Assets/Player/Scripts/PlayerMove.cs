@@ -47,6 +47,10 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("How far in degrees can you move the camera down")]
     public float BottomClamp = -90.0f;
 
+    [Header("Animations")]
+    [Tooltip("Player animator controller")]
+    public Animator Anim;
+
     // input
     private Vector2 _move;
     private Vector2 _look;
@@ -65,6 +69,12 @@ public class PlayerMove : MonoBehaviour
     // timeout deltatime
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
+
+    // animator hashes
+    private int _moveAnimHash = Animator.StringToHash("Move");
+    private int _runAnimHash = Animator.StringToHash("Run");
+    private int _fallAnimHash = Animator.StringToHash("Fall");
+    private int _groundAnimHash = Animator.StringToHash("Ground");
 
     private PlayerInput _playerInput;
     private CharacterController _controller;
@@ -124,6 +134,9 @@ public class PlayerMove : MonoBehaviour
         // set sphere position, with offset
         Vector3 spherePosition = transform.position + Vector3.down * GroundedOffset;
         Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+
+        // set animator ground
+        Anim.SetBool(_groundAnimHash, Grounded);
     }
 
     private void JumpAndGravity()
@@ -164,6 +177,9 @@ public class PlayerMove : MonoBehaviour
                 _fallTimeoutDelta -= Time.deltaTime;
             }
         }
+
+        // set animator fall
+        Anim.SetFloat(_fallAnimHash, _verticalVelocity);
     }
 
     private void Movement()
@@ -204,6 +220,10 @@ public class PlayerMove : MonoBehaviour
         // move the player
         Vector3 velocity = input.normalized * _speed + Vector3.up * (_verticalVelocity + 0.5f * Gravity * Time.deltaTime);
         _controller.Move(velocity * Time.deltaTime);
+
+        // set animator move and run
+        Anim.SetBool(_moveAnimHash, _speed > 0.01f);
+        Anim.SetBool(_runAnimHash, _sprint);
     }
 
     private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
