@@ -140,6 +140,7 @@ public class MazeManager : MonoBehaviour
             /* DO SMTH!*/
             MostInnerDoor.SetActive(true);                        /* Close the Door */
             MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
+            SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
             
 
         }
