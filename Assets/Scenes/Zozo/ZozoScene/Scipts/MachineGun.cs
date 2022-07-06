@@ -5,17 +5,12 @@ using UnityEngine;
 public class MachineGun : MonoBehaviour
 {
     public Tower tower;
+
+    public AudioSource CanonAudioSource;
+    public AudioSource MGAudioSource;
+
+    public AudioClip[] Clips;
    
-    void Start()
-    {
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
     public void KK()
     {
         tower.MachineGunSpy();
@@ -24,5 +19,15 @@ public class MachineGun : MonoBehaviour
     public void TT()
     {
         tower.CanonSpy();
+    }
+
+    public void CanonSound()
+    {
+        CanonAudioSource.PlayOneShot(Clips[0]);
+    }
+
+    public void MGSound()
+    {
+        MGAudioSource.PlayOneShot(Clips[0]);
     }
 }

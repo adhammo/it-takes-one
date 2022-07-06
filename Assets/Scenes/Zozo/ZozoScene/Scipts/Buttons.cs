@@ -9,7 +9,10 @@ public class Buttons : MonoBehaviour
     public bool CanPressButton = false;
     private bool CanUseButton = true;
     
+    public AudioSource ButtonSoundSource;
+    public AudioClip clip;
 
+    public int objectid = 0;
 
     
     void Update()
@@ -23,7 +26,7 @@ public class Buttons : MonoBehaviour
 
     public void OnTriggerEnter ( Collider collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player" && objectid == 0)
         {
             if ( CanUseButton)
             {
@@ -36,9 +39,14 @@ public class Buttons : MonoBehaviour
     }
     public void OnTriggerExit (Collider collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player" && objectid == 0)
         {
             CanPressButton = false;
         }
+    }
+
+    public void ButtonSound()
+    {
+        ButtonSoundSource.PlayOneShot(clip);
     }
 }
