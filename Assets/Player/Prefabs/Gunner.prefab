@@ -137,7 +137,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282373177700278441}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -261,7 +261,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646438503887025675}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -409,6 +409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5510467303108030803}
+  - {fileID: 1953922343265063575}
   m_Father: {fileID: 3258431598207668132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -452,7 +453,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614216729089199128}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -706,7 +707,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2707586246768370993}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -826,6 +827,37 @@ Transform:
   m_Father: {fileID: 5648226424016394940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2938312456530418232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953922343265063575}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1953922343265063575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938312456530418232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19, y: -0.055, z: 0.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1738239793346027140}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2979128871817919359
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +933,7 @@ GameObject:
   - component: {fileID: 3258431598207668133}
   - component: {fileID: 3258431598207668134}
   - component: {fileID: 3258431598207668135}
-  - component: {fileID: 3709788794790589179}
+  - component: {fileID: -1610400808323340354}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Player
@@ -1006,7 +1038,7 @@ MonoBehaviour:
   Anim: {fileID: 1907041670925022647}
   CanJump: 1
   _grounded: 0
---- !u!114 &3709788794790589179
+--- !u!114 &-1610400808323340354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1015,11 +1047,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3258431598207668128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f90ab004de8464f8f7f4d024142765, type: 3}
+  m_Script: {fileID: 11500000, guid: 993b1836b5556f041ba67064bdf73761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackTimeout: 0.8
-  ReAttackTimeout: 0.5
+  FireTimeout: 0.5
+  ReFireTimeout: 0.3
+  Bullet: {fileID: 2108530523218691487, guid: 66558400e58c34c47a78915f52bc5ca9, type: 3}
+  Muzzle: {fileID: 1953922343265063575}
   Anim: {fileID: 1907041670925022647}
 --- !u!1 &3345472585333021585
 GameObject:
@@ -1145,6 +1179,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3025170396370025475}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3739789922839603360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4954240564428653092}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4954240564428653092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739789922839603360}
+  m_LocalRotation: {x: 0.004215961, y: -0.00029660968, z: 0.00082763156, w: 0.99999076}
+  m_LocalPosition: {x: -0.00008612901, y: 0.05923807, z: 0.20860244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5825679846952629262}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3987780333505598382
 GameObject:
@@ -1435,7 +1500,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5706853669402922133}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1727,7 +1792,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678285399750216074}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1948,7 +2013,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7642391065403894992}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -2191,6 +2256,7 @@ Transform:
   m_Children:
   - {fileID: 5449823218298850164}
   - {fileID: 4172612070781371054}
+  - {fileID: 4954240564428653092}
   m_Father: {fileID: 783148550235700060}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

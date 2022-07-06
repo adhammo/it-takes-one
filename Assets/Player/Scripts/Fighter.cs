@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerMove))]
-public class PlayerAttack : MonoBehaviour
+[RequireComponent(typeof(Locomotion))]
+public class Fighter : MonoBehaviour
 {
     [Header("Attack")]
     [Tooltip("Attack time in seconds")]
     public float AttackTimeout = 0.4f;
+    [Tooltip("Reattack window in seconds")]
     public float ReAttackTimeout = 0.1f;
 
     [Header("Animations")]
@@ -27,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
     // input
     private bool _attack;
 
-    private PlayerMove _playerMove;
+    private Locomotion _playerMove;
 
     public void OnAttack(InputValue value)
     {
@@ -36,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        _playerMove = GetComponent<PlayerMove>();
+        _playerMove = GetComponent<Locomotion>();
 
         _attacked = false;
         _attacking = false;
