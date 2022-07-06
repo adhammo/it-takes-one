@@ -71,6 +71,10 @@ public class PlayerMove : MonoBehaviour
 
     private const float _threshold = 0.01f;
 
+
+    // Keeps track of the last grounded position we had before jumping.
+    public Vector3 _lastGroundedPosition;
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -101,6 +105,13 @@ public class PlayerMove : MonoBehaviour
     public void OnSprint(InputValue value)
     {
         _sprint = value.isPressed;
+    }
+
+    public void TeleportToLastGround()
+    {
+        _controller.enabled = false;
+        transform.position = _lastGroundedPosition;
+        _controller.enabled = true;
     }
 
     private void Update()
@@ -151,6 +162,7 @@ public class PlayerMove : MonoBehaviour
             {
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
                 _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                _lastGroundedPosition = transform.position;
             }
         }
         else
