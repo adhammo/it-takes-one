@@ -91,6 +91,10 @@ public class Locomotion : MonoBehaviour
 
     private const float _threshold = 0.01f;
 
+
+    // Keeps track of the last grounded position we had before jumping.
+    public Vector3 _lastGroundedPosition;
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -124,6 +128,13 @@ public class Locomotion : MonoBehaviour
     public void OnSprint(InputValue value)
     {
         _sprint = value.isPressed;
+    }
+
+    public void TeleportToLastGround()
+    {
+        _controller.enabled = false;
+        transform.position = _lastGroundedPosition;
+        _controller.enabled = true;
     }
 
     private void Update()
@@ -183,6 +194,8 @@ public class Locomotion : MonoBehaviour
 
                 // set animator jump
                 Anim.SetTrigger(_jumpAnimHash);
+                
+                _lastGroundedPosition = transform.position;
             }
         }
         else
