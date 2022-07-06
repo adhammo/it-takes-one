@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerMove))]
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack")]
     [Tooltip("Attack time in seconds")]
     public float AttackTimeout = 0.4f;
+    public float ReAttackTimeout = 0.1f;
 
     [Header("Animations")]
     [Tooltip("Player animator controller")]
@@ -18,8 +20,14 @@ public class PlayerAttack : MonoBehaviour
     // animator hashes
     private int _attackAnimHash = Animator.StringToHash("Attack");
 
+    // attacking
+    private bool _attacked;
+    private bool _attacking;
+
     // input
     private bool _attack;
+
+    private PlayerMove _playerMove;
 
     public void OnAttack(InputValue value)
     {
@@ -28,6 +36,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        _playerMove = GetComponent<PlayerMove>();
+
+        _attacked = false;
+        _attacking = false;
+
         // reset our timeouts on start
         _attackTimeoutDelta = AttackTimeout;
     }
@@ -42,14 +55,42 @@ public class PlayerAttack : MonoBehaviour
         if (_attackTimeoutDelta > 0.0f)
         {
             _attackTimeoutDelta -= Time.deltaTime;
+
+            if (_attackTimeoutDelta < ReAttackTimeout && _attack)
+            {
+                // register attack
+                _attacked = true;
+            }
         }
-        else if (_attack)
+        else if (_playerMove.IsGrounded && (_attacked || _attack))
         {
+            // unregister attack
+            _attacked = false;
+
+            // mark attacking
+            _attacking = true;
+
             // reset the attack timeout timer
             _attackTimeoutDelta = AttackTimeout;
 
             // set animator attack
             Anim.SetTrigger(_attackAnimHash);
         }
+        else
+        {
+            // unregister attack
+            _attacked = false;
+
+            // reset attacking
+            _attacking = false;
+        }
+
+        if (!_playerMove.IsGrounded)
+        {
+            // reset attacking
+            _attacking = false;
+        }
+
+        _playerMove.CanJump = !_attacking;
     }
 }

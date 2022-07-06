@@ -106,7 +106,6 @@ MonoBehaviour:
   Gravity: -12
   JumpTimeout: 0.35
   FallTimeout: 0.15
-  Grounded: 1
   GroundedOffset: -0.15
   GroundedRadius: 0.5
   GroundLayers:
@@ -116,6 +115,8 @@ MonoBehaviour:
   TopClamp: 80
   BottomClamp: -70
   Anim: {fileID: 5419829314077423248}
+  CanJump: 1
+  _grounded: 0
 --- !u!114 &1298949114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f90ab004de8464f8f7f4d024142765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackTimeout: 1
+  AttackTimeout: 0.8
+  ReAttackTimeout: 0.5
   Anim: {fileID: 5419829314077423248}
 --- !u!1 &2837191539886020211
 GameObject:

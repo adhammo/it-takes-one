@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("The height the player can jump")]
     public float JumpHeight = 1.2f;
     [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-    public float Gravity = -15.0f;
+    public float Gravity = -9.81f;
 
     [Space(10)]
     [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
@@ -29,9 +29,7 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
     public float FallTimeout = 0.15f;
 
-    [Header("Player Grounded")]
-    [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
-    public bool Grounded = true;
+    [Header("Grounded")]
     [Tooltip("Useful for rough ground")]
     public float GroundedOffset = -0.14f;
     [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
@@ -51,6 +49,10 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("Player animator controller")]
     public Animator Anim;
 
+    [HideInInspector()]
+    public bool CanJump = true;
+    public bool IsGrounded { get { return _grounded && !_jumped; } }
+
     // input
     private Vector2 _move;
     private Vector2 _look;
@@ -66,8 +68,14 @@ public class PlayerMove : MonoBehaviour
     private float _verticalVelocity;
     private float _stickingVelocity = -2.0f;
 
+    // grounded
+    [Header("Stats")]
+    [Tooltip("If the character is grounded or not")]
+    [SerializeField]
+    private bool _grounded;
+    private bool _jumped;
+
     // timeout deltatime
-    private bool _hasJumped;
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
 
@@ -88,8 +96,10 @@ public class PlayerMove : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _playerInput = GetComponent<PlayerInput>();
 
+        _grounded = false;
+        _jumped = false;
+
         // reset our timeouts on start
-        _hasJumped = false;
         _jumpTimeoutDelta = JumpTimeout;
         _fallTimeoutDelta = FallTimeout;
     }
@@ -136,10 +146,10 @@ public class PlayerMove : MonoBehaviour
     {
         // set sphere position, with offset
         Vector3 spherePosition = transform.position + Vector3.down * GroundedOffset;
-        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+        _grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 
         // set animator ground
-        Anim.SetBool(_groundAnimHash, Grounded);
+        Anim.SetBool(_groundAnimHash, _grounded);
     }
 
     private void JumpAndGravity()
@@ -147,7 +157,7 @@ public class PlayerMove : MonoBehaviour
         // apply gravity over time
         _verticalVelocity += Gravity * Time.deltaTime;
 
-        if (Grounded)
+        if (_grounded)
         {
             // reset the fall timeout timer
             _fallTimeoutDelta = FallTimeout;
@@ -163,13 +173,14 @@ public class PlayerMove : MonoBehaviour
             {
                 _jumpTimeoutDelta -= Time.deltaTime;
             }
-            else if (!_hasJumped && _jump)
+            else if (CanJump && !_jumped && _jump)
             {
-                _hasJumped = true;
+                // mark jumped
+                _jumped = true;
 
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
                 _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-                
+
                 // set animator jump
                 Anim.SetTrigger(_jumpAnimHash);
             }
@@ -177,7 +188,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             // reset the jump timeout timer
-            _hasJumped = false;
+            _jumped = false;
             _jumpTimeoutDelta = JumpTimeout;
 
             // fall timeout
@@ -269,7 +280,7 @@ public class PlayerMove : MonoBehaviour
         Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
         Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-        if (Grounded) Gizmos.color = transparentGreen;
+        if (_grounded) Gizmos.color = transparentGreen;
         else Gizmos.color = transparentRed;
 
         // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
