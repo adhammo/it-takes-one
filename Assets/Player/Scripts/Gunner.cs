@@ -18,6 +18,8 @@ public class Gunner : MonoBehaviour
     [Header("Muzzle")]
     [Tooltip("Muzzle transform")]
     public Transform Muzzle;
+    [Tooltip("Flash visual effect")]
+    public ParticleSystem Flash;
 
     [Header("Animations")]
     [Tooltip("Player animator controller")]
@@ -79,6 +81,7 @@ public class Gunner : MonoBehaviour
             // mark firing
             _firing = true;
 
+            StartFireEffects();
             FireBullet();
 
             // reset the fire timeout timer
@@ -94,6 +97,9 @@ public class Gunner : MonoBehaviour
 
             // reset firing
             _firing = false;
+
+            // reset fire
+            ResetFireEffects();
         }
 
         if (!_playerMove.IsGrounded)
@@ -104,6 +110,17 @@ public class Gunner : MonoBehaviour
 
         _playerMove.CanJump = !_firing;
     }
+
+    private void StartFireEffects()
+    {
+        Flash.Play();
+    }
+
+    private void ResetFireEffects()
+    {
+        Flash.Stop();
+    }
+
 
     private void FireBullet()
     {
