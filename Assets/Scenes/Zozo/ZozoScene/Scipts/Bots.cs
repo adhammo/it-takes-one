@@ -12,6 +12,9 @@ public class Bots : MonoBehaviour
     public float LookRadius = 30f;
     public bool isAttacking = false;
     public BotStatus Status;
+
+    public AudioSource source;
+    public AudioClip[] clips;
     
     void Update()
     {
@@ -74,4 +77,13 @@ public class Bots : MonoBehaviour
         isAttacking = false;
     }
 
+    public void MonsterHitSound()
+    {
+        source.PlayOneShot(clips[0]);
+    }
+
+    public void MonsterJumpSound()
+    {
+        source.PlayOneShot(clips[0]);
+    }
 }
