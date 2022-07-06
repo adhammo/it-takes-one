@@ -30,10 +30,7 @@ public class Bots : MonoBehaviour
     {
           float distance = Vector3.Distance(Player.position, transform.position);     
           if(distance <= LookRadius && distance > agent.stoppingDistance && !Status.BotisDied)                    /*Player is Running Away*/
-          {
-             
-          
-
+          {           
                 anim.SetBool("Run",true);  
                 anim.SetBool("Attack",false);
                 anim.SetBool("Attack2",false);      

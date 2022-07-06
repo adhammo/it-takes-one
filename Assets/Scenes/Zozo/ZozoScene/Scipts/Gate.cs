@@ -22,7 +22,7 @@ public class Gate : MonoBehaviour
         if(collider.gameObject.tag == "Player")
         {
 
-                 /*   Press Certian Key Cap to Trave to Tarek's World    */    
+                 /*   Press Certian Key Cap to Take The Key    */    
 
         }
 

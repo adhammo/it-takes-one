@@ -24,7 +24,7 @@ public class BotStatus : MonoBehaviour
         {
             if(ObjectIdentifier == 0)   /* Humanoid*/
             {
-                            Die();
+                Die();
             }
             else if (ObjectIdentifier == 1 )   /* Towers */
             {
