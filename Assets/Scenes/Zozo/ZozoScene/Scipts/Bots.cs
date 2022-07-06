@@ -10,7 +10,7 @@ public class Bots : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     public float LookRadius = 30f;
-
+    public bool isAttacking = false;
     public BotStatus Status;
     
     void Update()
@@ -64,5 +64,14 @@ public class Bots : MonoBehaviour
         anim.SetBool("Attack2",true); 
     }
 
+    public void BotisAttacking()
+    {
+        isAttacking = true;
+    }
+
+    public void BotisNotAttacking()
+    {
+        isAttacking = false;
+    }
 
 }
