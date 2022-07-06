@@ -9,6 +9,8 @@ public class BotStatus : MonoBehaviour
     public Animator anim;
     public bool BotisDied = false;
 
+    public int ObjectIdentifier = 0;
+
     void Start()
     {
         currentHealth = maxHealth ;
@@ -20,7 +22,15 @@ public class BotStatus : MonoBehaviour
 
         if ( currentHealth <= 0)
         {
-            Die();
+            if(ObjectIdentifier == 0)   /* Humanoid*/
+            {
+                            Die();
+            }
+            else if (ObjectIdentifier == 1 )   /* Towers */
+            {
+                Towers_Die();
+            }
+
         }
     }
 
@@ -29,5 +39,11 @@ public class BotStatus : MonoBehaviour
         BotisDied = true;
         anim.SetBool("Die",true);
         Destroy(gameObject,4f);
+    }
+
+    public void Towers_Die()
+    {
+        BotisDied = true;
+        Destroy(gameObject,2f);
     }
 }

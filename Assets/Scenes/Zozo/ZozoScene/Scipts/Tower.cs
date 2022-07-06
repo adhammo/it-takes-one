@@ -18,10 +18,7 @@ public class Tower : MonoBehaviour
     public GameObject ShootingPoint;
     public GameObject ShootingPoint2;
 
-    public int ObjectIdentifier =0;   /* Initially Canon Script */
 
-
-    
     void Update()
     {
         CheckDistance();
@@ -69,8 +66,12 @@ public class Tower : MonoBehaviour
     }
 
     void Attack()
-    { 
-                       anim.SetBool("Attack",true);
+    {       
+                    if(!Status.BotisDied)
+                    {
+                        anim.SetBool("Attack",true);
+                    }
+
     }
     public void MachineGunSpy()
     {
