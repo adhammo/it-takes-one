@@ -9,6 +9,9 @@ public class BotStatus : MonoBehaviour
     public Animator anim;
     public bool BotisDied = false;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     public int ObjectIdentifier = 0;
 
     void Start()
@@ -44,6 +47,7 @@ public class BotStatus : MonoBehaviour
     public void Towers_Die()
     {
         BotisDied = true;
+        source.PlayOneShot(clip);
         Destroy(gameObject,2f);
     }
 }
