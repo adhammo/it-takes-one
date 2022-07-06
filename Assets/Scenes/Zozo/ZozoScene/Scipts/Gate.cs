@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
-
-   
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter ( Collider collider)
     {
         if(collider.gameObject.tag == "Player")
@@ -27,4 +15,6 @@ public class Gate : MonoBehaviour
         }
 
     }
+
+    /* To be Deleted*/
 }

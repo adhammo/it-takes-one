@@ -19,6 +19,11 @@ public class Tower : MonoBehaviour
     public GameObject ShootingPoint2;
 
 
+    void Start()
+    {
+
+    }
+
     void Update()
     {
         CheckDistance();
