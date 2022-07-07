@@ -11,13 +11,17 @@ public class Gate : MonoBehaviour
         if(collider.gameObject.tag == "Player")
         {
 
+            /* Transition to be Implemented Here */ 
+              PlayerPrefs.SetInt("Level", 2);
+
+              UnityEngine.SceneManagement.SceneManager.LoadScene("TarekScene"); 
+
              gameObject.SetActive(false);
 
             /*  UI to be Implemented Here  */
-            
 
-            /* Transition to be Implemented Here */ 
-              PlayerPrefs.SetInt("Level", 2);
+
+
 
  
 
