@@ -16,12 +16,26 @@ public class Fighter : MonoBehaviour
     public float ThrowTimeout = 0.4f;
     [Tooltip("Throw cooldown in seconds")]
     public float ThrowCooldown = 1.0f;
+    [Tooltip("Throw distance in meters")]
+    public float ThrowDistance = 25.0f;
+    [Tooltip("Layer to throw through")]
+    public LayerMask ThrowLayer;
 
     [Header("Axe")]
     [Tooltip("Axe to hide")]
     public GameObject AxeGameObject;
     [Tooltip("Axe to throw")]
-    public GameObject AxePrefab;
+    public GameObject Axe;
+
+    [Header("Hands")]
+    [Tooltip("Hands transform")]
+    public Transform Hands;
+    [Tooltip("Power visual effect")]
+    public ParticleSystem Power;
+
+    [Header("Camera")]
+    [Tooltip("The throw direction target")]
+    public Transform ThrowTarget;
 
     [Header("Animations")]
     [Tooltip("Player animator controller")]
@@ -151,6 +165,7 @@ public class Fighter : MonoBehaviour
         {
             // reset throwing
             _throwing = false;
+            ResetThrowEffects();
         }
 
         if (_throwCooldown > 0.0f)
@@ -159,8 +174,30 @@ public class Fighter : MonoBehaviour
         }
     }
 
-    public void ThrowAxe()
+    private void StartThrowEffects()
     {
         AxeGameObject.SetActive(false);
+    }
+
+    private void ResetThrowEffects()
+    {
+        AxeGameObject.SetActive(true);
+    }
+
+    public void ThrowAxe()
+    {
+        StartThrowEffects();
+
+        Vector3 hitPoint = ThrowTarget.position + ThrowTarget.forward * ThrowDistance;
+        if (Physics.Raycast(ThrowTarget.position, ThrowTarget.forward, out RaycastHit hit, ThrowDistance, ThrowLayer))
+        {
+            hitPoint = hit.point;
+        }
+
+        Vector3 direction = hitPoint - Hands.position;
+        Quaternion look = Quaternion.LookRotation(direction.normalized, ThrowTarget.up);
+        GameObject bullet = Instantiate(Axe, Hands.position, look);
+        bullet.GetComponent<Axe>().TravelDistanceSqr = direction.sqrMagnitude;
+        Debug.DrawLine(Hands.position, hitPoint);
     }
 }

@@ -6,7 +6,7 @@ public class Throw : MonoBehaviour
     [Tooltip("Fighter to throw axe")]
     public Fighter PlayerFighter;
 
-    public void PrintEvent()
+    public void ThrowAxe()
     {
         PlayerFighter.ThrowAxe();
     }

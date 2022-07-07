@@ -90,8 +90,6 @@ public class Gunner : MonoBehaviour
 
             // mark firing
             _firing = true;
-
-            StartFireEffects();
             FireBullet();
 
             // reset the fire timeout timer
@@ -107,8 +105,6 @@ public class Gunner : MonoBehaviour
 
             // reset firing
             _firing = false;
-
-            // reset fire
             ResetFireEffects();
         }
 
@@ -133,12 +129,13 @@ public class Gunner : MonoBehaviour
 
     private void FireBullet()
     {
+        StartFireEffects();
+
         Vector3 hitPoint = FireTarget.position + FireTarget.forward * FireDistance;
         if (Physics.Raycast(FireTarget.position, FireTarget.forward, out RaycastHit hit, FireDistance, FireLayer))
         {
             hitPoint = hit.point;
         }
-
 
         FireLine.SetPosition(0, Muzzle.position);
         FireLine.SetPosition(1, hitPoint);
