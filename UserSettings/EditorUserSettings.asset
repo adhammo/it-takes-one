@@ -21,9 +21,18 @@ EditorUserSettings:
       value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
       flags: 0
     RecentlyUsedSceneGuid-5:
+<<<<<<< HEAD
       value: 505251510106080c0f0d587440770e444e4f4d73787f736329284b62e0b1313b
       flags: 0
     RecentlyUsedSceneGuid-6:
+=======
+      value: 0002525657545d0a540b0f271177094414151c7d7e7927617a7e4e61e0b8306a
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 50050d0356050c5a0f5f097540765b444e4f1b72752c7f337a7b1e37e7b63668
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+>>>>>>> Zozo
       value: 07010c5401565e0b5d0b5f7b47250d4442164b2e7e2e7765747b4c30b2b6306a
       flags: 0
     vcSharedLogLevel:

@@ -29,6 +29,13 @@ public class MazeManager : MonoBehaviour
     public bool BossisDied = false;
     public Animator MostInnerMazeAnimator;
 
+    public GameObject Boss;
+    public GameObject Player1;
+    public GameObject Point;
+
+    public BotStatus BossStatus;
+
+    CharacterController controller ;
 
     /* States Definition*/
     public enum State
@@ -55,7 +62,25 @@ public class MazeManager : MonoBehaviour
 
         MostOutterDoor.SetActive(true);  
         MiddleDoor.SetActive(true);
-        MostInnerDoor.SetActive(true);                         
+        MostInnerDoor.SetActive(true);       
+
+        if (PlayerPrefs.GetInt("Level")==3)
+        {
+
+            /* DO SMTH!*/
+            MostInnerDoor.SetActive(true);                        /* Close the Door */
+            MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
+            SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
+
+            /* Start Fighting the Boss */
+            Boss.SetActive(true);
+
+            controller = Player1.GetComponent<CharacterController>();
+            controller.enabled = false;
+            Player1.transform.position = Point.transform.position;
+            controller.enabled = true;
+
+        }                  
     }
 
 
@@ -140,30 +165,18 @@ public class MazeManager : MonoBehaviour
     /* End Level State Functions */
     public void CheckReturn()
     {
-        if (ReturnToMaze)
-        {
-            /* DO SMTH!*/
-            MostInnerDoor.SetActive(true);                        /* Close the Door */
-            MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
-            SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
-
-            /* Start Fighting the Boss */
-
             /* After Boss is Died */
-
-            if (BossisDied)
+            if (BossStatus.currentHealth <=0)
             {
                 MostInnerDoor.SetActive(false);                        /* Open the Door */
                 MostInnerMazeAnimator.SetBool("Stand",true);           /* Stop Rotating the Maze */
                 ReturnToMaze = false;
 
                 /*Game Ends Here*/ 
+                PlayerPrefs.SetInt("Level" , 4 );
 
                 /* Add Some UI  ( IT TAKES ONE !) */ 
             }  
 
-            
-
-        }
     }                          
 }
