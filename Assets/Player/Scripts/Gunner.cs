@@ -6,10 +6,14 @@ using UnityEngine.InputSystem;
 public class Gunner : MonoBehaviour
 {
     [Header("Fire")]
-    [Tooltip("Fire time in seconds")]
+    [Tooltip("Fire timeout in seconds")]
     public float FireTimeout = 0.4f;
     [Tooltip("Refire window in seconds")]
     public float ReFireTimeout = 0.1f;
+    [Tooltip("Fire distance in meters")]
+    public float FireDistance = 100.0f;
+    [Tooltip("Layer to fire through")]
+    public LayerMask FireLayer;
 
     [Header("Bullet")]
     [Tooltip("Bullet prefab")]
@@ -21,11 +25,17 @@ public class Gunner : MonoBehaviour
     [Tooltip("Flash visual effect")]
     public ParticleSystem Flash;
 
+    [Header("Camera")]
+    [Tooltip("The fire direction target")]
+    public Transform FireTarget;
+    [Tooltip("The fire line")]
+    public LineRenderer FireLine;
+
     [Header("Animations")]
     [Tooltip("Player animator controller")]
     public Animator Anim;
 
-    // fire timeout deltatime
+    // timeout deltatime
     private float _fireTimeoutDelta;
 
     // animator hashes
@@ -121,9 +131,22 @@ public class Gunner : MonoBehaviour
         Flash.Stop();
     }
 
-
     private void FireBullet()
     {
-        Instantiate(Bullet, Muzzle.position, Muzzle.rotation);
+        Vector3 hitPoint = FireTarget.position + FireTarget.forward * FireDistance;
+        if (Physics.Raycast(FireTarget.position, FireTarget.forward, out RaycastHit hit, FireDistance, FireLayer))
+        {
+            hitPoint = hit.point;
+        }
+
+
+        FireLine.SetPosition(0, Muzzle.position);
+        FireLine.SetPosition(1, hitPoint);
+
+        Vector3 direction = hitPoint - Muzzle.position;
+        Quaternion look = Quaternion.LookRotation(direction.normalized, FireTarget.up);
+        GameObject bullet = Instantiate(Bullet, Muzzle.position, look);
+        bullet.GetComponent<Bullet>().TravelDistanceSqr = direction.sqrMagnitude;
+        Debug.DrawLine(Muzzle.position, hitPoint);
     }
 }

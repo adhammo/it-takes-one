@@ -641,8 +641,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   CinemachineCameraTarget: {fileID: 2837191539886020211}
-  TopClamp: 80
-  BottomClamp: -70
+  TopClamp: 60
+  BottomClamp: -60
   Anim: {fileID: 5419829314077423248}
   CanJump: 1
   _grounded: 0
@@ -661,6 +661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackTimeout: 0.8
   ReAttackTimeout: 0.5
+  ThrowTimeout: 0.4
+  ThrowCooldown: 1
   Anim: {fileID: 5419829314077423248}
 --- !u!114 &1065804467145408117
 MonoBehaviour:
@@ -1056,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531131404911493054}
   - component: {fileID: 5419829314077423248}
+  - component: {fileID: 8495052435977315752}
   m_Layer: 6
   m_Name: Tomahawk
   m_TagString: Player
@@ -1101,6 +1104,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8495052435977315752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3866903976954684676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767f097fd2c39814ab2e3c4533c63f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4189173097149636530
 GameObject:
   m_ObjectHideFlags: 0

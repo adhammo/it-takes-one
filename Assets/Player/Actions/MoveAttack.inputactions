@@ -51,8 +51,8 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Reload",
-                    "type": "PassThrough",
+                    "name": "Throw",
+                    "type": "Button",
                     "id": "d0be092d-6c5f-4d4f-8157-690bea86425a",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -238,7 +238,7 @@
                 {
                     "name": "",
                     "id": "c8fcd86e-dcfd-4f88-8e93-b638cdbf3320",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -271,22 +271,22 @@
                 {
                     "name": "",
                     "id": "d36b19fb-c0f7-4ec6-aa9f-2bef5e08203f",
-                    "path": "<Keyboard>/r",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Reload",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "bcba9c84-93e7-41bb-bb24-37cdfbb228b9",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Reload",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -1,33 +1,32 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
     [Header("Bullet")]
     [Tooltip("Bullet speed in m/s")]
-    public float BulletSpeed = 20.0f;
+    public float BulletSpeed = 100.0f;
+    [Tooltip("Bullet offset from target")]
+    public float BulletOffset = 50.0f;
 
-    // [Header("Explosion")]
-    // [Tooltip("Explosion prefab")]
-    // public GameObject Explosion;
+    [HideInInspector()]
+    public float TravelDistanceSqr = 10000.0f;
 
-    private Rigidbody _rb;
+    private Vector3 _startPos;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _startPos = transform.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        _rb.velocity = transform.forward * BulletSpeed * Time.fixedDeltaTime;
-    }
+        transform.position += transform.forward * BulletSpeed * Time.deltaTime;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        ContactPoint point = other.contacts[0];
-        // Instantiate(Explosion, point.point, Quaternion.LookRotation(point.normal));
-        DestroyBullet();
+        float distanceSqr = (transform.position - _startPos).sqrMagnitude;
+        if (distanceSqr >= TravelDistanceSqr + BulletOffset)
+        {
+            DestroyBullet();
+        }
     }
 
     private void DestroyBullet()
