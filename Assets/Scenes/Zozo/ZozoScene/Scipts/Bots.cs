@@ -84,6 +84,6 @@ public class Bots : MonoBehaviour
 
     public void MonsterJumpSound()
     {
-        source.PlayOneShot(clips[0]);
+        source.PlayOneShot(clips[1]);
     }
 }

@@ -22,8 +22,8 @@ public class MazeManager : MonoBehaviour
     public int CanTravelCounter = 0;
 
     /* EndLevel Ring State Variables */
-
-
+    public bool ReturnToMaze = false;
+    public Animator MostInnerMazeAnimator;
 
     /* States Definition*/
     public enum State
@@ -73,7 +73,7 @@ public class MazeManager : MonoBehaviour
                                     CheckTravelling();
                                     break;
             case State.EndLevel:
-                                    
+                                    CheckReturn();
                                     break;                                                                                                                                              
         }
     }
@@ -113,7 +113,7 @@ public class MazeManager : MonoBehaviour
         if (InnerRingStateBotsDied)
         {
             MostInnerButton.SetActive(true);       /* Show Idle State Button */
-            Destroy(MostInnerDoor);                /* Open the Ring Door*/
+            MostInnerDoor.SetActive(false);        /* Open the Ring Door*/
             InnerRingStateBotsDied = false;        /* Reset Flag*/
             CurrentState = State.Travelling;       /* Change Current State to Next State */
         }
@@ -133,13 +133,16 @@ public class MazeManager : MonoBehaviour
     }
 
     /* End Level State Functions */
-                                   
-
-   /* void RotateRandom(GameObject Object)
+    public void CheckReturn()
     {
-        Vector3 RotationDegrees = 90*  new Vector3 (0f, Random.Range(-3,4), 0f );
+        if (ReturnToMaze)
+        {
+            /* DO SMTH!*/
+            MostInnerDoor.SetActive(true);                        /* Close the Door */
+            MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
+            SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
+            
 
-        Object.transform.Rotate(RotationDegrees) ;
-    }
-    */
+        }
+    }                          
 }

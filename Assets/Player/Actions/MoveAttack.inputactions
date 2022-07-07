@@ -62,7 +62,7 @@
                 {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "242b5506-2072-46d5-972e-66063e5a2b5d",
+                    "id": "ff480904-92e7-43af-a517-fa08d578be82",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,11 +292,22 @@
                 },
                 {
                     "name": "",
-                    "id": "e08654ad-da58-4e04-a19e-a51df6c541a1",
+                    "id": "b87e7a02-64ce-4cdf-91de-80b3418da5f7",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e158307b-b7b9-4524-9e08-14785b071270",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

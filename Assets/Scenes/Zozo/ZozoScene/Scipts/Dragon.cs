@@ -15,7 +15,8 @@ public class Dragon : MonoBehaviour
 
             Vector3 Direction = Points[index].position - transform.position;
             transform.Translate(Direction * Time.deltaTime );
-           // FaceTarget();
+            FaceTarget();
+            
             if(Flag)
             {
                 StartCoroutine(ChangeDragonPath(5f));

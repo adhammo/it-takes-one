@@ -66,7 +66,7 @@ public class Locomotion : MonoBehaviour
     private float _speed;
     private float _rotationVelocity;
     private float _verticalVelocity;
-    private float _stickingVelocity = -2.0f;
+    private float _stickingVelocity = -4.0f;
 
     // grounded
     [Header("Stats")]

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Player/Model.meta
 guid: 4f225c0c736d4cc4c806f99bf80e9285
+========
+guid: 920e9ed9e331c40459829d7681fbf6c0
+>>>>>>>> Zozo:Assets/Plugins.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -10,6 +10,8 @@ public class MachineGun : MonoBehaviour
     public AudioSource MGAudioSource;
 
     public AudioClip[] Clips;
+
+    public BotStatus status;
    
     public void KK()
     {
