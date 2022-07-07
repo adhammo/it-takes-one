@@ -1723,6 +1723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bot: {fileID: 6318491924692175325}
+  objectidenetify: 0
+  damage: 20
 --- !u!135 &6318491925194306681
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1945,7 +1947,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.2
   m_Pitch: 1.2
   Loop: 0
   Mute: 0
