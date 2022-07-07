@@ -18,14 +18,20 @@ public class Tower : MonoBehaviour
     public GameObject ShootingPoint;
     public GameObject ShootingPoint2;
 
+    public ParticleSystem SmokeEffect;
+    public float eulerAngle_y;
+    public float eulerAngle_y_update;    
+    public float angleDiff;
 
     void Start()
     {
-
+        eulerAngle_y = transform.localEulerAngles.y;            
     }
 
     void Update()
     {
+         eulerAngle_y_update = transform.eulerAngles.y;
+        //eulerAngle_y_update = transform.localRotation.eulerAngles.y;
         CheckDistance();
     }
 
@@ -40,7 +46,9 @@ public class Tower : MonoBehaviour
     {
         float distance = Vector3.Distance(Player.position, transform.position); 
 
-        if ( distance <= TowerRadius && !Status.BotisDied)
+         angleDiff = eulerAngle_y_update - eulerAngle_y ;
+
+        if ( distance <= TowerRadius && !Status.BotisDied  ) //&& ( (angleDiff >=0f && angleDiff <=60f) || (angleDiff >=310f && angleDiff <=360f) )
         {
              FaceTarget();
              if(AttackFlag)
@@ -53,6 +61,7 @@ public class Tower : MonoBehaviour
         else
         {
            anim.SetBool("Attack",false);
+           eulerAngle_y_update = transform.localEulerAngles.y;
         }
     }
 
@@ -65,7 +74,9 @@ public class Tower : MonoBehaviour
             Quaternion lookRotation_MG = Quaternion.LookRotation(new Vector3(direction.x * -1, direction.y * -0.1f, direction.z * -1));
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation , Time.deltaTime * 5f);
-            MachineGuns.transform.rotation = Quaternion.Slerp(MachineGuns.transform.rotation, lookRotation_MG , Time.deltaTime * 5f);;
+            MachineGuns.transform.rotation = Quaternion.Slerp(MachineGuns.transform.rotation, lookRotation_MG , Time.deltaTime * 5f);
+           
+
         }
        
     }
@@ -99,6 +110,7 @@ public class Tower : MonoBehaviour
             CurrentBullet = Instantiate (BulletPrefab,ShootingPoint.transform.position , ShootingPoint.transform.rotation);
             Rigidbody rb = CurrentBullet.GetComponent<Rigidbody>();
             rb.AddForce(direction * 40f );
+            SmokeEffect.Play();
             Destroy(CurrentBullet,3f);
             anim.SetBool("Attack",false);
     }

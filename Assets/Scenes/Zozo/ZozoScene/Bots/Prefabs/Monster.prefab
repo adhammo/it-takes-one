@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 3471817097988727174}
   - component: {fileID: 3471817097988727179}
   - component: {fileID: 3471817097988727172}
-  - component: {fileID: 170026063838164436}
+  - component: {fileID: 2189628758977728005}
   - component: {fileID: 3471817097988727173}
   m_Layer: 0
   m_Name: Sphere
@@ -788,7 +788,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &170026063838164436
+--- !u!114 &2189628758977728005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1322,6 +1322,7 @@ MonoBehaviour:
   source: {fileID: 3471817098401802204}
   clip: {fileID: 8300000, guid: 9ec1ec37ea10cdf4a8f6a310fe58a8fb, type: 3}
   ObjectIdentifier: 0
+  tracker: {fileID: 0}
 --- !u!1 &4460861423311290838
 GameObject:
   m_ObjectHideFlags: 0
