@@ -28,7 +28,7 @@ public class MazeManager : MonoBehaviour
     public bool ReturnToMaze = false;
     public bool BossisDied = false;
     public Animator MostInnerMazeAnimator;
-
+    public GameObject Boss;
 
     /* States Definition*/
     public enum State
@@ -140,7 +140,7 @@ public class MazeManager : MonoBehaviour
     /* End Level State Functions */
     public void CheckReturn()
     {
-        if (ReturnToMaze)
+        if (PlayerPrefs.GetInt("Level")==3)
         {
             /* DO SMTH!*/
             MostInnerDoor.SetActive(true);                        /* Close the Door */
@@ -148,6 +148,7 @@ public class MazeManager : MonoBehaviour
             SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
 
             /* Start Fighting the Boss */
+            Boss.SetActive(true);
 
             /* After Boss is Died */
 
@@ -158,6 +159,7 @@ public class MazeManager : MonoBehaviour
                 ReturnToMaze = false;
 
                 /*Game Ends Here*/ 
+                PlayerPrefs.SetInt("Level" , 4 );
 
                 /* Add Some UI  ( IT TAKES ONE !) */ 
             }  

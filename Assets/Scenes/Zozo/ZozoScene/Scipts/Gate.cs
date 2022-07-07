@@ -14,8 +14,12 @@ public class Gate : MonoBehaviour
              gameObject.SetActive(false);
 
             /*  UI to be Implemented Here  */
+            
 
-            /* Transition to be Implemented Here */  
+            /* Transition to be Implemented Here */ 
+              PlayerPrefs.SetInt("Level", 2);
+
+ 
 
         }
 
