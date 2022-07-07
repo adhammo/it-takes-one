@@ -10,6 +10,14 @@ public class Fighter : MonoBehaviour
     public float AttackTimeout = 0.4f;
     [Tooltip("Reattack window in seconds")]
     public float ReAttackTimeout = 0.1f;
+    [Tooltip("Attack distance in meters")]
+    public float AttackDistance = 25.0f;
+    [Tooltip("Attack box width in meters")]
+    public float AttackWidth = 1.0f;
+    [Tooltip("Attack box height in meters")]
+    public float AttackHeight = 2.0f;
+    [Tooltip("Layer to attack in")]
+    public LayerMask AttackLayer;
 
     [Header("Throw")]
     [Tooltip("Throw timeout in seconds")]
@@ -17,7 +25,7 @@ public class Fighter : MonoBehaviour
     [Tooltip("Throw cooldown in seconds")]
     public float ThrowCooldown = 1.0f;
     [Tooltip("Throw distance in meters")]
-    public float ThrowDistance = 25.0f;
+    public float ThrowDistance = 5.0f;
     [Tooltip("Layer to throw through")]
     public LayerMask ThrowLayer;
 
@@ -182,8 +190,15 @@ public class Fighter : MonoBehaviour
 
     public void AttackEnemy()
     {
-        Debug.Log("Attack damage");
-        //AttackDamage
+        if (Physics.BoxCast(transform.position + Vector3.up * (AttackHeight / 2f) + transform.forward * (AttackDistance / 2f - 0.1f), new Vector3(AttackWidth / 2f, AttackHeight / 2f, 0.01f), transform.forward, out RaycastHit hit, Quaternion.identity, AttackDistance, AttackLayer))
+        {
+            Debug.Log("Attack damage");
+            if (hit.collider.tag == "Enemy")
+            {
+                BotStatus bot = hit.collider.GetComponent<BotStatus>();
+                bot.TakeDamage(AttackDamage);
+            }
+        }
     }
 
     private void StartThrowEffects()
@@ -204,9 +219,6 @@ public class Fighter : MonoBehaviour
         if (Physics.Raycast(ThrowTarget.position, ThrowTarget.forward, out RaycastHit hit, ThrowDistance, ThrowLayer))
         {
             hitPoint = hit.point;
-
-            Debug.Log("Fire damage");
-            //FireDamage
         }
 
         Vector3 direction = hitPoint - Hands.position;
@@ -215,5 +227,13 @@ public class Fighter : MonoBehaviour
         axe.ThrowDamage = ThrowDamage;
         axe.TravelDistanceSqr = direction.sqrMagnitude;
         Debug.DrawLine(Hands.position, hitPoint);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
+        Gizmos.color = transparentGreen;
+
+        Gizmos.DrawCube(transform.position + Vector3.up * AttackHeight / 2f + transform.forward * AttackDistance / 2f, new Vector3(AttackWidth, AttackHeight, AttackDistance));
     }
 }

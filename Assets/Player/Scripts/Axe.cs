@@ -34,7 +34,11 @@ public class Axe : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Throw damage");
-        //ThrowDamage
+        if (other.tag == "Enemy")
+        {
+            BotStatus bot = other.GetComponent<BotStatus>();
+            bot.TakeDamage(ThrowDamage);
+        }
     }
 
     private void DestroyAxe()

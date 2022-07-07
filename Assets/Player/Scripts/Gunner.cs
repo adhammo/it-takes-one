@@ -140,8 +140,12 @@ public class Gunner : MonoBehaviour
         {
             hitPoint = hit.point;
 
-            Debug.Log("Damage enemey");
-            //FireDamage
+            Debug.Log("Fire damage");
+            if (hit.collider.tag == "Enemy")
+            {
+                BotStatus bot = hit.collider.GetComponent<BotStatus>();
+                bot.TakeDamage(FireDamage);
+            }
         }
 
         FireLine.SetPosition(0, Muzzle.position);

@@ -70,6 +70,8 @@ public class Death : MonoBehaviour
         _deathCollider.enabled = false;
         _deathRigidbody.useGravity = false;
         _deathRigidbody.isKinematic = true;
+
+        _currentHealth = MaxHealth;
     }
 
     void Die()

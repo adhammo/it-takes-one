@@ -954,6 +954,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackTimeout: 0.8
   ReAttackTimeout: 0.5
+  AttackDistance: 2
+  AttackWidth: 1
+  AttackHeight: 2
+  AttackLayer:
+    serializedVersion: 2
+    m_Bits: 63
   ThrowTimeout: 0.8
   ThrowCooldown: 1.5
   ThrowDistance: 20
