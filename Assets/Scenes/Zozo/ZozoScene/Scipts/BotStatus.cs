@@ -42,8 +42,12 @@ public class BotStatus : MonoBehaviour
     public void Die()
     {
         BotisDied = true;
-        tracker.DiedBotsCounter ++ ;
-        anim.SetBool("Die",true);
+        if(tracker)
+            tracker.DiedBotsCounter ++ ;
+
+        if(anim)
+            anim.SetBool("Die",true);
+
         Destroy(gameObject,4f);
     }
 

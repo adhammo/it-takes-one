@@ -13,15 +13,18 @@ public class Spawner : MonoBehaviour
     bool _activated = false;
     int _currentWave = 0;
     BoxCollider _spawnerVolume;
-    public void NextWave()
+
+    public void Activate()
     {
-        // Do something on first wave (lock door for example)
-        if (_currentWave == 0)
+        if (!_activated)
         {
             _activated = true;
-            onFirstWave?.Invoke();
+            NextWave();
         }
+    }
 
+    public void NextWave()
+    {
         // Disable the object carrying the last wave
         if (_currentWave > 0)
             waves[_currentWave - 1].SetActive(false);
@@ -39,12 +42,22 @@ public class Spawner : MonoBehaviour
                     GameObject.Instantiate(spawnEffect, childTransform);
                 }
             }
+
+            // Do something on first wave (lock door for example)
+            if (_currentWave == 0)
+            {
+                _activated = true;
+                onFirstWave?.Invoke();
+            }
+
             _currentWave++;
         }
         // If all waves finished, do something (open door for example)
         else
         {
+            _activated = false;
             onWavesFinished?.Invoke();
+            Destroy(gameObject);
         }
     }
 
