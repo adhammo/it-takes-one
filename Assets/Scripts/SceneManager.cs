@@ -18,7 +18,7 @@ public class SceneManager : MonoBehaviour
     }
 
     public void Start()
-    {
+    {        
         if(PlayerPrefs.GetInt("Level") != 2)
         {
             blockade.SetActive(false);
