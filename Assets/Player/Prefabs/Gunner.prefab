@@ -1227,7 +1227,7 @@ MonoBehaviour:
   FireTarget: {fileID: 1738239793346027140}
   FireLine: {fileID: 1663359678457378620}
   Anim: {fileID: 1907041670925022647}
-  GunHit: {fileID: 0}
+  GunHit: {fileID: 8300000, guid: 6693cdbd56256d14abe116e6e9f9a9aa, type: 3}
 --- !u!114 &2161022384225089850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,6 +1282,7 @@ MonoBehaviour:
   - {fileID: -1610400808323340354}
   - {fileID: 2161022384225089850}
   - {fileID: 7060420303452752286}
+  HurtUI: {fileID: 0}
   DeathGameObject: {fileID: 1451403644547991410}
   DeathModel: {fileID: 5130387765432216553}
   HurtAudio: {fileID: 8300000, guid: ce03b5a5d9f91574a9723fc22a6c6fef, type: 3}
@@ -1651,6 +1652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 9001943528054521401}
   AudiosId: Steps
+  Volume: 0.3
   AudioClips:
   - {fileID: 8300000, guid: 8957090cfb7cc1a4bae7b9d8d3077079, type: 3}
   - {fileID: 8300000, guid: 20ad842ad9e168c44b5b324b140c91a5, type: 3}
@@ -1669,6 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 9001943528054521401}
   AudiosId: Shoot
+  Volume: 0.5
   AudioClips:
   - {fileID: 8300000, guid: d6c841185df0bac4ab80bc59be7d78f1, type: 3}
 --- !u!114 &3240478772781421214
@@ -1685,6 +1688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 9001943528054521401}
   AudiosId: Jump
+  Volume: 0.4
   AudioClips:
   - {fileID: 8300000, guid: c2bcc76c3d1843744b87537d9dca12d9, type: 3}
 --- !u!114 &9207032272113130469
@@ -1701,6 +1705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 9001943528054521401}
   AudiosId: Land
+  Volume: 0.4
   AudioClips:
   - {fileID: 8300000, guid: 42934f615fa73f44ca0f309eec97f275, type: 3}
 --- !u!1 &5240538967648964959

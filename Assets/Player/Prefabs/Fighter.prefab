@@ -691,7 +691,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -839,7 +839,6 @@ MonoBehaviour:
   AxeGameObject: {fileID: 5039493137345359799}
   Axe: {fileID: 7472873852664666323, guid: 5feb13107829d914981d72bcc4bc7148, type: 3}
   Hands: {fileID: 6335186701980259632}
-  Power: {fileID: 0}
   ThrowTarget: {fileID: 3126807253006241669}
   Anim: {fileID: 5419829314077423248}
   AttackHit: {fileID: 8300000, guid: 0af8f73af63745b4482d81a7cd0d5dea, type: 3}
@@ -897,6 +896,7 @@ MonoBehaviour:
   - {fileID: 1298949114}
   - {fileID: 1065804467145408117}
   - {fileID: 1379553699713959426}
+  HurtUI: {fileID: 0}
   DeathGameObject: {fileID: 2837191539886020211}
   DeathModel: {fileID: 3866903976954684676}
   HurtAudio: {fileID: 8300000, guid: ce03b5a5d9f91574a9723fc22a6c6fef, type: 3}
@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 7486552631840934304}
   AudiosId: Steps
+  Volume: 0.3
   AudioClips:
   - {fileID: 8300000, guid: 8957090cfb7cc1a4bae7b9d8d3077079, type: 3}
   - {fileID: 8300000, guid: 20ad842ad9e168c44b5b324b140c91a5, type: 3}
@@ -1399,6 +1400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 7486552631840934304}
   AudiosId: Attack
+  Volume: 0.5
   AudioClips:
   - {fileID: 8300000, guid: 2d86b99584ec21340b100e952185fc18, type: 3}
 --- !u!114 &3878264304792214470
@@ -1415,6 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 7486552631840934304}
   AudiosId: Jump
+  Volume: 0.4
   AudioClips:
   - {fileID: 8300000, guid: c2bcc76c3d1843744b87537d9dca12d9, type: 3}
 --- !u!114 &7181657963028263224
@@ -1431,6 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 7486552631840934304}
   AudiosId: Land
+  Volume: 0.4
   AudioClips:
   - {fileID: 8300000, guid: 42934f615fa73f44ca0f309eec97f275, type: 3}
 --- !u!1 &4189173097149636530

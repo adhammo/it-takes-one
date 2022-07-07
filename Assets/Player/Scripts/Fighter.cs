@@ -44,8 +44,6 @@ public class Fighter : MonoBehaviour
     [Header("Hands")]
     [Tooltip("Hands transform")]
     public Transform Hands;
-    [Tooltip("Power visual effect")]
-    public ParticleSystem Power;
 
     [Header("Camera")]
     [Tooltip("The throw direction target")]

@@ -7,6 +7,8 @@ public class Audios : MonoBehaviour
     public AudioSource AudioSource;
     [Tooltip("Id")]
     public string AudiosId;
+    [Tooltip("Volume")]
+    public float Volume = 1f;
     [Tooltip("Audios")]
     public AudioClip[] AudioClips;
 
@@ -15,7 +17,7 @@ public class Audios : MonoBehaviour
     {
         if (AudiosId != id) return;
         
-        AudioSource.PlayOneShot(AudioClips[index++]);
+        AudioSource.PlayOneShot(AudioClips[index++], Volume);
         if (index == AudioClips.Length) index = 0;
     }
 }

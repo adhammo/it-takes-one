@@ -14,6 +14,10 @@ public class Death : MonoBehaviour
     [Tooltip("Scripts to disable")]
     public MonoBehaviour[] DisabledScripts;
 
+    [Header("Hurt")]
+    [Tooltip("Hurt UI object")]
+    public Hurt HurtUI;
+
     [Header("Animation")]
     [Tooltip("Object to fall")]
     public GameObject DeathGameObject;
@@ -52,6 +56,8 @@ public class Death : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _audioSource.PlayOneShot(HurtAudio);
+        HurtUI.GetHurt();
+
         _currentHealth -= damage;
         if (_currentHealth <= 0.0f)
         {
@@ -79,7 +85,7 @@ public class Death : MonoBehaviour
     void Die()
     {
         _audioSource.PlayOneShot(DeathAudio);
-        
+
         foreach (var script in DisabledScripts)
         {
             script.enabled = false;
