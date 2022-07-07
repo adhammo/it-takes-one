@@ -3843,26 +3843,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7404057476719143502, guid: bfef8b7380a066e47ba96438759bddfb,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 1.043232e+24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7404057476719143502, guid: bfef8b7380a066e47ba96438759bddfb,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 1.05e-43
-      objectReference: {fileID: 0}
-    - target: {fileID: 7404057476719143502, guid: bfef8b7380a066e47ba96438759bddfb,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 20.000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7404057476719143502, guid: bfef8b7380a066e47ba96438759bddfb,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfef8b7380a066e47ba96438759bddfb, type: 3}
 --- !u!114 &117131761 stripped
@@ -4246,7 +4226,8 @@ MonoBehaviour:
   onDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  tagsToConsider: []
+  tagsToConsider:
+  - Player
 --- !u!65 &135816231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4255,7 +4236,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135816229}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.195972, y: 2.988988, z: 1}
