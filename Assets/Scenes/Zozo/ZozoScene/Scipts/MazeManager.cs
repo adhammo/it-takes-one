@@ -25,6 +25,7 @@ public class MazeManager : MonoBehaviour
     public bool ReturnToMaze = false;
     public Animator MostInnerMazeAnimator;
 
+
     /* States Definition*/
     public enum State
     {
@@ -141,6 +142,7 @@ public class MazeManager : MonoBehaviour
             MostInnerDoor.SetActive(true);                        /* Close the Door */
             MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
             SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
+
             
 
         }
