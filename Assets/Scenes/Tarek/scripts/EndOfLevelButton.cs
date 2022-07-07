@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndOfLevelButton : MonoBehaviour
 {
@@ -8,5 +7,6 @@ public class EndOfLevelButton : MonoBehaviour
     {
         PlayerPrefs.SetInt("Level", 1);
         // Fade out effect
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ZozoScene");
     }
 }
