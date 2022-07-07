@@ -15,6 +15,10 @@ public class Gunner : MonoBehaviour
     [Tooltip("Layer to fire through")]
     public LayerMask FireLayer;
 
+    [Header("Stats")]
+    [Tooltip("Fire damage")]
+    public float FireDamage = 50.0f;
+
     [Header("Bullet")]
     [Tooltip("Bullet prefab")]
     public GameObject Bullet;
@@ -135,6 +139,9 @@ public class Gunner : MonoBehaviour
         if (Physics.Raycast(FireTarget.position, FireTarget.forward, out RaycastHit hit, FireDistance, FireLayer))
         {
             hitPoint = hit.point;
+
+            Debug.Log("Damage enemey");
+            //FireDamage
         }
 
         FireLine.SetPosition(0, Muzzle.position);
@@ -142,8 +149,8 @@ public class Gunner : MonoBehaviour
 
         Vector3 direction = hitPoint - Muzzle.position;
         Quaternion look = Quaternion.LookRotation(direction.normalized, FireTarget.up);
-        GameObject bullet = Instantiate(Bullet, Muzzle.position, look);
-        bullet.GetComponent<Bullet>().TravelDistanceSqr = direction.sqrMagnitude;
+        Bullet bullet = Instantiate(Bullet, Muzzle.position, look).GetComponent<Bullet>();
+        bullet.TravelDistanceSqr = direction.sqrMagnitude;
         Debug.DrawLine(Muzzle.position, hitPoint);
     }
 }

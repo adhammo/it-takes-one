@@ -21,6 +21,12 @@ public class Fighter : MonoBehaviour
     [Tooltip("Layer to throw through")]
     public LayerMask ThrowLayer;
 
+    [Header("Stats")]
+    [Tooltip("Attack damage")]
+    public float AttackDamage = 40.0f;
+    [Tooltip("Throw damage")]
+    public float ThrowDamage = 80.0f;
+
     [Header("Axe")]
     [Tooltip("Axe to hide")]
     public GameObject AxeGameObject;
@@ -174,6 +180,12 @@ public class Fighter : MonoBehaviour
         }
     }
 
+    public void AttackEnemy()
+    {
+        Debug.Log("Attack damage");
+        //AttackDamage
+    }
+
     private void StartThrowEffects()
     {
         AxeGameObject.SetActive(false);
@@ -192,12 +204,16 @@ public class Fighter : MonoBehaviour
         if (Physics.Raycast(ThrowTarget.position, ThrowTarget.forward, out RaycastHit hit, ThrowDistance, ThrowLayer))
         {
             hitPoint = hit.point;
+
+            Debug.Log("Fire damage");
+            //FireDamage
         }
 
         Vector3 direction = hitPoint - Hands.position;
         Quaternion look = Quaternion.LookRotation(direction.normalized, ThrowTarget.up);
-        GameObject bullet = Instantiate(Axe, Hands.position, look);
-        bullet.GetComponent<Axe>().TravelDistanceSqr = direction.sqrMagnitude;
+        Axe axe = Instantiate(Axe, Hands.position, look).GetComponent<Axe>();
+        axe.ThrowDamage = ThrowDamage;
+        axe.TravelDistanceSqr = direction.sqrMagnitude;
         Debug.DrawLine(Hands.position, hitPoint);
     }
 }

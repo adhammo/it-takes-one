@@ -9,6 +9,8 @@ public class Axe : MonoBehaviour
     public float AxeOffset = 5.0f;
 
     [HideInInspector()]
+    public float ThrowDamage = 80.0f;
+    [HideInInspector()]
     public float TravelDistanceSqr = 2500.0f;
 
     private Vector3 _startPos;
@@ -27,6 +29,12 @@ public class Axe : MonoBehaviour
         {
             DestroyAxe();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Throw damage");
+        //ThrowDamage
     }
 
     private void DestroyAxe()

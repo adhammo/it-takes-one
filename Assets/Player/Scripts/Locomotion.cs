@@ -48,7 +48,7 @@ public class Locomotion : MonoBehaviour
     [Header("Animations")]
     [Tooltip("Player animator controller")]
     public Animator Anim;
-
+ 
     [HideInInspector()]
     public bool CanJump = true;
     public bool IsGrounded { get { return _grounded && !_jumped; } }
@@ -255,7 +255,7 @@ public class Locomotion : MonoBehaviour
         _controller.Move(velocity * Time.deltaTime);
 
         // set animator move and run
-        Anim.SetBool(_moveAnimHash, _speed > 0.01f);
+        Anim.SetBool(_moveAnimHash, _speed > 0.0f);
         Anim.SetBool(_runAnimHash, _sprint);
     }
 

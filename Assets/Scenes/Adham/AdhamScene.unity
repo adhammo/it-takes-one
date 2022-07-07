@@ -156,7 +156,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1650971046}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27735847, g: 1, b: 0.37827837, a: 0.9098039}
+  m_Color: {r: 0.2941177, g: 0.6839687, b: 0.9529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27735847, g: 1, b: 0.37827837, a: 0.9098039}
+  m_Color: {r: 0.2941177, g: 0.6839687, b: 0.9529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1218,7 +1218,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0728207, y: 1}
+    m_SensorSize: {x: 2.1815386, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1284,6 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1650971046}
+  - component: {fileID: 1650971047}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
@@ -1305,8 +1306,8 @@ RectTransform:
   m_Children:
   - {fileID: 88970404}
   - {fileID: 1766201909}
-  - {fileID: 2123536083}
   - {fileID: 6909144}
+  - {fileID: 2123536083}
   m_Father: {fileID: 1030016922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1315,6 +1316,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1650971047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650971045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fc7cde353284740b7c6b5cf0821f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Width: 10
+  Height: 2
+  Spacing: 5
+  LeftSeg: {fileID: 88970404}
+  RightSeg: {fileID: 1766201909}
+  UpSeg: {fileID: 6909144}
+  DownSeg: {fileID: 2123536083}
 --- !u!1 &1766201908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27735847, g: 1, b: 0.37827837, a: 0.9098039}
+  m_Color: {r: 0.2941177, g: 0.6839687, b: 0.9529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1422,7 +1442,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1650971046}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1442,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27735847, g: 1, b: 0.37827837, a: 0.9098039}
+  m_Color: {r: 0.2941177, g: 0.6839687, b: 0.9529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
