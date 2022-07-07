@@ -8,6 +8,12 @@ public class Axe : MonoBehaviour
     [Tooltip("Axe offset from target")]
     public float AxeOffset = 5.0f;
 
+    [Header("Audio")]
+    [Tooltip("Player audio source")]
+    public AudioSource PlayerAudio;
+    [Tooltip("Axe impact sound")]
+    public AudioClip AxeImpact;
+
     [HideInInspector()]
     public float ThrowDamage = 80.0f;
     [HideInInspector()]
@@ -33,9 +39,10 @@ public class Axe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Throw damage");
         if (other.tag == "Enemy")
         {
+            Debug.Log("Throw damage");
+            PlayerAudio.PlayOneShot(AxeImpact);
             BotStatus bot = other.GetComponent<BotStatus>();
             bot.TakeDamage(ThrowDamage);
         }

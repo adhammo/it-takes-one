@@ -55,6 +55,12 @@ public class Fighter : MonoBehaviour
     [Tooltip("Player animator controller")]
     public Animator Anim;
 
+    [Header("Audios")]
+    [Tooltip("Attack hit sound")]
+    public AudioClip AttackHit;
+
+    public float CurrentThrowCooldown { get { return _throwCooldown; } }
+
     // timeout deltatime
     private float _attackTimeoutDelta;
     private float _throwTimeoutDelta;
@@ -75,6 +81,7 @@ public class Fighter : MonoBehaviour
     private bool _attack;
 
     private Locomotion _playerMove;
+    private AudioSource _audioSource;
 
     public void OnAttack(InputValue value)
     {
@@ -106,6 +113,7 @@ public class Fighter : MonoBehaviour
     private void Start()
     {
         _playerMove = GetComponent<Locomotion>();
+        _audioSource = GetComponent<AudioSource>();
 
         _attacked = false;
         _attacking = false;
@@ -152,6 +160,7 @@ public class Fighter : MonoBehaviour
 
             // mark attacking
             _attacking = true;
+            AttackEnemy();
 
             // reset the attack timeout timer
             _attackTimeoutDelta = AttackTimeout;
@@ -190,14 +199,28 @@ public class Fighter : MonoBehaviour
 
     public void AttackEnemy()
     {
-        if (Physics.BoxCast(transform.position + Vector3.up * (AttackHeight / 2f) + transform.forward * (AttackDistance / 2f - 0.1f), new Vector3(AttackWidth / 2f, AttackHeight / 2f, 0.01f), transform.forward, out RaycastHit hit, Quaternion.identity, AttackDistance, AttackLayer))
+        Collider[] hits = Physics.OverlapBox(transform.position + Vector3.up * (AttackHeight / 2f) + transform.forward * (AttackDistance / 2f - 0.5f), new Vector3(AttackWidth / 2f, AttackHeight / 2f, (AttackDistance / 2f) + 0.5f), Quaternion.LookRotation(transform.forward), AttackLayer);
+
+        Collider minHit = null;
+        float minSqrDist = float.PositiveInfinity;
+        foreach (var hit in hits)
+        {
+            if (hit.tag != "Enemy") continue;
+
+            float distanceSqr = (transform.position - hit.transform.position).sqrMagnitude;
+            if (distanceSqr < minSqrDist)
+            {
+                minSqrDist = distanceSqr;
+                minHit = hit;
+            }
+        }
+
+        if (minHit != null)
         {
             Debug.Log("Attack damage");
-            if (hit.collider.tag == "Enemy")
-            {
-                BotStatus bot = hit.collider.GetComponent<BotStatus>();
-                bot.TakeDamage(AttackDamage);
-            }
+            _audioSource.PlayOneShot(AttackHit);
+            BotStatus bot = minHit.GetComponent<BotStatus>();
+            bot.TakeDamage(AttackDamage);
         }
     }
 
@@ -224,6 +247,7 @@ public class Fighter : MonoBehaviour
         Vector3 direction = hitPoint - Hands.position;
         Quaternion look = Quaternion.LookRotation(direction.normalized, ThrowTarget.up);
         Axe axe = Instantiate(Axe, Hands.position, look).GetComponent<Axe>();
+        axe.PlayerAudio = _audioSource;
         axe.ThrowDamage = ThrowDamage;
         axe.TravelDistanceSqr = direction.sqrMagnitude;
         Debug.DrawLine(Hands.position, hitPoint);
@@ -234,6 +258,8 @@ public class Fighter : MonoBehaviour
         Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
         Gizmos.color = transparentGreen;
 
-        Gizmos.DrawCube(transform.position + Vector3.up * AttackHeight / 2f + transform.forward * AttackDistance / 2f, new Vector3(AttackWidth, AttackHeight, AttackDistance));
+        Gizmos.matrix = Matrix4x4.TRS(transform.position + Vector3.up * (AttackHeight / 2f) + transform.forward * (AttackDistance / 2f - 0.5f), Quaternion.LookRotation(transform.forward), new Vector3(AttackWidth, AttackHeight, AttackDistance + 1f));
+
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
     }
 }

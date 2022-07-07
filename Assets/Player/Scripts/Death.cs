@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(AudioSource))]
 public class Death : MonoBehaviour
 {
     [Header("Stats")]
@@ -19,12 +20,21 @@ public class Death : MonoBehaviour
     [Tooltip("Model to hide")]
     public GameObject DeathModel;
 
+    [Header("Audios")]
+    [Tooltip("Hurt audio")]
+    public AudioClip HurtAudio;
+    [Tooltip("Death audio")]
+    public AudioClip DeathAudio;
+
     [SerializeField]
     [Tooltip("Player current health")]
     private float _currentHealth;
 
+    public float CurrentHealth { get { return _currentHealth; } }
+
     private PlayerInput _playerInput;
     private CharacterController _controller;
+    private AudioSource _audioSource;
     private Collider _deathCollider;
     private Rigidbody _deathRigidbody;
 
@@ -32,24 +42,16 @@ public class Death : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         _controller = GetComponent<CharacterController>();
+        _audioSource = GetComponent<AudioSource>();
         _deathCollider = DeathGameObject.GetComponent<Collider>();
         _deathRigidbody = DeathGameObject.GetComponent<Rigidbody>();
 
         _currentHealth = MaxHealth;
     }
 
-    public bool diee = false;
-    void Update()
-    {
-        if (diee)
-        {
-            Die();
-            diee = false;
-        }
-    }
-
     public void TakeDamage(float damage)
     {
+        _audioSource.PlayOneShot(HurtAudio);
         _currentHealth -= damage;
         if (_currentHealth <= 0.0f)
         {
@@ -76,6 +78,8 @@ public class Death : MonoBehaviour
 
     void Die()
     {
+        _audioSource.PlayOneShot(DeathAudio);
+        
         foreach (var script in DisabledScripts)
         {
             script.enabled = false;

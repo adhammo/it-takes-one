@@ -39,6 +39,10 @@ public class Gunner : MonoBehaviour
     [Tooltip("Player animator controller")]
     public Animator Anim;
 
+    [Header("Audios")]
+    [Tooltip("Gun hit sound")]
+    public AudioClip GunHit;
+
     // timeout deltatime
     private float _fireTimeoutDelta;
 
@@ -53,6 +57,7 @@ public class Gunner : MonoBehaviour
     private bool _fire;
 
     private Locomotion _playerMove;
+    private AudioSource _audioSource;
 
     public void OnAttack(InputValue value)
     {
@@ -62,6 +67,7 @@ public class Gunner : MonoBehaviour
     private void Start()
     {
         _playerMove = GetComponent<Locomotion>();
+        _audioSource = GetComponent<AudioSource>();
 
         _fired = false;
         _firing = false;
@@ -140,9 +146,10 @@ public class Gunner : MonoBehaviour
         {
             hitPoint = hit.point;
 
-            Debug.Log("Fire damage");
             if (hit.collider.tag == "Enemy")
             {
+                Debug.Log("Fire damage");
+                _audioSource.PlayOneShot(GunHit);
                 BotStatus bot = hit.collider.GetComponent<BotStatus>();
                 bot.TakeDamage(FireDamage);
             }

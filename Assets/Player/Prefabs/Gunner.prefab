@@ -1227,6 +1227,7 @@ MonoBehaviour:
   FireTarget: {fileID: 1738239793346027140}
   FireLine: {fileID: 1663359678457378620}
   Anim: {fileID: 1907041670925022647}
+  GunHit: {fileID: 0}
 --- !u!114 &2161022384225089850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,8 +1284,9 @@ MonoBehaviour:
   - {fileID: 7060420303452752286}
   DeathGameObject: {fileID: 1451403644547991410}
   DeathModel: {fileID: 5130387765432216553}
+  HurtAudio: {fileID: 8300000, guid: ce03b5a5d9f91574a9723fc22a6c6fef, type: 3}
+  DeathAudio: {fileID: 8300000, guid: 74d9bd85686d7d448a44ce5fc5b2f314, type: 3}
   _currentHealth: 0
-  diee: 0
 --- !u!1 &3345472585333021585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1582,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5510467303108030803}
   - component: {fileID: 1907041670925022647}
+  - component: {fileID: 7887487038770409923}
+  - component: {fileID: 2136010943972920033}
+  - component: {fileID: 3240478772781421214}
+  - component: {fileID: 9207032272113130469}
   m_Layer: 6
   m_Name: Pistol
   m_TagString: Untagged
@@ -1631,6 +1637,72 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7887487038770409923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130387765432216553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b50dcb39abca42acc94be4e56ef47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 9001943528054521401}
+  AudiosId: Steps
+  AudioClips:
+  - {fileID: 8300000, guid: 8957090cfb7cc1a4bae7b9d8d3077079, type: 3}
+  - {fileID: 8300000, guid: 20ad842ad9e168c44b5b324b140c91a5, type: 3}
+  - {fileID: 8300000, guid: 8408f99e35651d24d8360c05e387f944, type: 3}
+--- !u!114 &2136010943972920033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130387765432216553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b50dcb39abca42acc94be4e56ef47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 9001943528054521401}
+  AudiosId: Shoot
+  AudioClips:
+  - {fileID: 8300000, guid: d6c841185df0bac4ab80bc59be7d78f1, type: 3}
+--- !u!114 &3240478772781421214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130387765432216553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b50dcb39abca42acc94be4e56ef47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 9001943528054521401}
+  AudiosId: Jump
+  AudioClips:
+  - {fileID: 8300000, guid: c2bcc76c3d1843744b87537d9dca12d9, type: 3}
+--- !u!114 &9207032272113130469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130387765432216553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b50dcb39abca42acc94be4e56ef47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 9001943528054521401}
+  AudiosId: Land
+  AudioClips:
+  - {fileID: 8300000, guid: 42934f615fa73f44ca0f309eec97f275, type: 3}
 --- !u!1 &5240538967648964959
 GameObject:
   m_ObjectHideFlags: 0
