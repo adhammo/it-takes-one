@@ -46,9 +46,7 @@ public class Tower : MonoBehaviour
     {
         float distance = Vector3.Distance(Player.position, transform.position); 
 
-         angleDiff = eulerAngle_y_update - eulerAngle_y ;
-
-        if ( distance <= TowerRadius && !Status.BotisDied  ) //&& ( (angleDiff >=0f && angleDiff <=60f) || (angleDiff >=310f && angleDiff <=360f) )
+        if ( distance <= TowerRadius && !Status.BotisDied  ) 
         {
              FaceTarget();
              if(AttackFlag && CanAttack)
@@ -62,7 +60,6 @@ public class Tower : MonoBehaviour
         else
         {
            anim.SetBool("Attack",false);
-           eulerAngle_y_update = transform.localEulerAngles.y;
         }
     }
 
