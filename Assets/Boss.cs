@@ -84,8 +84,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform targetCorrected = _target;
-        targetCorrected.position = new Vector3(_target.position.x, transform.position.y, _target.position.z);
+        Vector3 targetCorrected = new Vector3(_target.position.x, transform.position.y, _target.position.z);
 
         transform.LookAt(targetCorrected);
     }
