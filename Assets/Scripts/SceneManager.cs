@@ -14,6 +14,7 @@ public class SceneManager : MonoBehaviour
     public void BossDead()
     {
         PlayerPrefs.SetInt("Level", 3);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ZozoScene");
     }
 
     public void Start()
