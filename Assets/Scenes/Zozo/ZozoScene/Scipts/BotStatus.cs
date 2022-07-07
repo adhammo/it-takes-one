@@ -29,11 +29,18 @@ public class BotStatus : MonoBehaviour
         {
             if(ObjectIdentifier == 0)   /* Humanoid*/
             {
-                Die();
+                if(BotisDied == false)
+                {
+                     Die();
+                }
+
             }
             else if (ObjectIdentifier == 1 )   /* Towers */
             {
-                Towers_Die();
+                if(BotisDied == false)
+                {
+                     Towers_Die();
+                }
             }
 
         }
@@ -50,6 +57,7 @@ public class BotStatus : MonoBehaviour
     public void Towers_Die()
     {
         BotisDied = true;
+        tracker.DiedBotsCounter ++ ;
         source.PlayOneShot(clip);
         Destroy(gameObject,2f);
     }
