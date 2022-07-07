@@ -14,6 +14,8 @@ public class BotStatus : MonoBehaviour
 
     public int ObjectIdentifier = 0;
 
+    public BotsTracker tracker;
+
     void Start()
     {
         currentHealth = maxHealth ;
@@ -40,6 +42,7 @@ public class BotStatus : MonoBehaviour
     public void Die()
     {
         BotisDied = true;
+        tracker.DiedBotsCounter ++ ;
         anim.SetBool("Die",true);
         Destroy(gameObject,4f);
     }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class MazeManager : MonoBehaviour
 {
 
+    /*General Variable*/
+
+
     /* Idle State Varibles*/
     public GameObject MostOutterWall, MostOutterButton,MostOutterDoor;
     public bool IdleStateBotsDied = false;
