@@ -131,7 +131,7 @@ public class MazeManager : MonoBehaviour
         {
             SpaceTimeGate.SetActive(true);     /* Show Travelling Gate */
 
-            /* Show Some Partical Systems for the Gate */
+            /* Key has been taken*/
 
             CurrentState = State.EndLevel;    /* Change Current State to Next State */           
         }

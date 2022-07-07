@@ -7,7 +7,7 @@ public class Click : MonoBehaviour
     {
         if (value.isPressed)
         {
-            Debug.Log("clicked");
+            
         }
     }
 }

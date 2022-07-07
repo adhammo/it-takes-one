@@ -13,25 +13,25 @@ public class Tower : MonoBehaviour
 
     public float TimeToFire = 4f;
     private bool AttackFlag = true;
+    private bool CanAttack = false;
+
     public GameObject BulletPrefab;
            GameObject CurrentBullet;
     public GameObject ShootingPoint;
     public GameObject ShootingPoint2;
 
-    public ParticleSystem SmokeEffect;
-    public float eulerAngle_y;
-    public float eulerAngle_y_update;    
+    public ParticleSystem SmokeEffect;   
     public float angleDiff;
+
+    public GameObject StandObject;
 
     void Start()
     {
-        eulerAngle_y = transform.localEulerAngles.y;            
+        //eulerAngle_y = transform.localEulerAngles.y;            
     }
 
     void Update()
     {
-         eulerAngle_y_update = transform.eulerAngles.y;
-        //eulerAngle_y_update = transform.localRotation.eulerAngles.y;
         CheckDistance();
     }
 
@@ -46,22 +46,20 @@ public class Tower : MonoBehaviour
     {
         float distance = Vector3.Distance(Player.position, transform.position); 
 
-         angleDiff = eulerAngle_y_update - eulerAngle_y ;
-
-        if ( distance <= TowerRadius && !Status.BotisDied  ) //&& ( (angleDiff >=0f && angleDiff <=60f) || (angleDiff >=310f && angleDiff <=360f) )
+        if ( distance <= TowerRadius && !Status.BotisDied  ) 
         {
              FaceTarget();
-             if(AttackFlag)
+             if(AttackFlag && CanAttack)
              {
                 StartCoroutine(TimeToShoot(TimeToFire));
                 AttackFlag=false;
+                CanAttack = false;
              }
 
         }
         else
         {
            anim.SetBool("Attack",false);
-           eulerAngle_y_update = transform.localEulerAngles.y;
         }
     }
 
@@ -70,11 +68,18 @@ public class Tower : MonoBehaviour
         Vector3 direction = Player.position - transform.position;
         if(direction.x !=0 && direction.z !=0)
         {
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x * -1, 0, direction.z * -1));
-            Quaternion lookRotation_MG = Quaternion.LookRotation(new Vector3(direction.x * -1, direction.y * -0.1f, direction.z * -1));
+            angleDiff = Vector3.Dot(StandObject.transform.forward * -1 , direction );
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation , Time.deltaTime * 5f);
-            MachineGuns.transform.rotation = Quaternion.Slerp(MachineGuns.transform.rotation, lookRotation_MG , Time.deltaTime * 5f);
+            if( angleDiff > 10f)
+            {
+                CanAttack = true;
+              Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x * -1, 0, direction.z * -1));
+              Quaternion lookRotation_MG = Quaternion.LookRotation(new Vector3(direction.x * -1, direction.y * -0.1f, direction.z * -1));
+
+              transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation , Time.deltaTime * 5f);
+              MachineGuns.transform.rotation = Quaternion.Slerp(MachineGuns.transform.rotation, lookRotation_MG , Time.deltaTime * 5f);
+            }
+
            
 
         }

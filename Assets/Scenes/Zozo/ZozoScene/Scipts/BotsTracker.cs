@@ -7,6 +7,7 @@ public class BotsTracker : MonoBehaviour
     public int DiedBotsCounter = 0;
     public MazeManager manager;
 
+
     void Update()
     {
         TrackBots();
@@ -14,16 +15,16 @@ public class BotsTracker : MonoBehaviour
     
     public void TrackBots()
     {
-        if ( DiedBotsCounter == 4)
+        if ( DiedBotsCounter == 6 )                  /*First Wave Died */
         {
             manager.IdleStateBotsDied = true;
 
         }
-        else if (DiedBotsCounter == 8)
+        else if (DiedBotsCounter == 12 )             /* Second Wave Died */
         {
             manager.MiddleRingStateBotsDied = true;
         }
-        else if (DiedBotsCounter == 14)
+        else if (DiedBotsCounter == 22)            /* Third Wave Died */
         {
             manager.InnerRingStateBotsDied = true;
         }

@@ -5,16 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
+
     public void OnTriggerEnter ( Collider collider)
     {
         if(collider.gameObject.tag == "Player")
         {
 
-                 /*   Press Certian Key Cap to Take The Key    */    
+             gameObject.SetActive(false);
+
+            /*  UI to be Implemented Here  */
+
+            /* Transition to be Implemented Here */  
 
         }
 
     }
 
-    /* To be Deleted*/
+
 }

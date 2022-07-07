@@ -11,7 +11,6 @@ public class MachineGun : MonoBehaviour
 
     public AudioClip[] Clips;
 
-    public BotStatus status;
    
     public void KK()
     {
