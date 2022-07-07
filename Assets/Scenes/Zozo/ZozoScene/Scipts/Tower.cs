@@ -20,9 +20,7 @@ public class Tower : MonoBehaviour
     public GameObject ShootingPoint;
     public GameObject ShootingPoint2;
 
-    public ParticleSystem SmokeEffect;
-    public float eulerAngle_y;
-    public float eulerAngle_y_update;    
+    public ParticleSystem SmokeEffect;   
     public float angleDiff;
 
     public GameObject StandObject;
@@ -34,8 +32,6 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        // eulerAngle_y_update = transform.eulerAngles.y;
-        //eulerAngle_y_update = transform.localRotation.eulerAngles.y;
         CheckDistance();
     }
 
