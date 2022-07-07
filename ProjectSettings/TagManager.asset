@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PuzzleCube
   - FxTemporaire
+  - Enemy
+  - Projectile
+  - SpawnerVolume
   layers:
   - Default
   - TransparentFX
