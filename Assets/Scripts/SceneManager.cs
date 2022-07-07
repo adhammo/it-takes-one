@@ -21,8 +21,8 @@ public class SceneManager : MonoBehaviour
         {
             blockade.SetActive(false);
             bossCube.SetActive(false);
-            pistolGameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Gunner>().enabled = false;
+            // pistolGameObject.SetActive(false);
+            // GameObject.FindGameObjectWithTag("Player").GetComponent<Gunner>().enabled = false;
         }
     }
 
