@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 2180752700701433510}
   - component: {fileID: 1298949114}
   - component: {fileID: 1065804467145408117}
+  - component: {fileID: 1379553699713959426}
   - component: {fileID: 3592902474659965315}
   m_Layer: 6
   m_Name: Fighter
@@ -998,6 +999,18 @@ MonoBehaviour:
   defaultLayer:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &1379553699713959426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180752700701433505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a2a638c466ab4f8e74bfb8dd991d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3592902474659965315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 2180752700701433510}
   - {fileID: 1298949114}
   - {fileID: 1065804467145408117}
+  - {fileID: 1379553699713959426}
   DeathGameObject: {fileID: 2837191539886020211}
   DeathModel: {fileID: 3866903976954684676}
   _currentHealth: 0
