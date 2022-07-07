@@ -7,6 +7,7 @@ public class Explosive : MonoBehaviour
 {
     public ParticleSystem effect;
     public GameObject Explo;
+    public AudioSource source;
 
     void Start()
     {
@@ -17,9 +18,9 @@ public class Explosive : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-
+            source.Play();
             effect.Play();
-            //Destroy(Explo,1f);
+            Destroy(Explo,0.14f);
 
         }
 

@@ -23,6 +23,7 @@ public class MazeManager : MonoBehaviour
 
     /* EndLevel Ring State Variables */
     public bool ReturnToMaze = false;
+    public bool BossisDied = false;
     public Animator MostInnerMazeAnimator;
 
 
@@ -142,6 +143,21 @@ public class MazeManager : MonoBehaviour
             MostInnerDoor.SetActive(true);                        /* Close the Door */
             MostInnerMazeAnimator.SetBool("Stand",false);         /* Start Rotating the Maze */
             SpaceTimeGate.SetActive(false);                       /* Disappear Travelling Gate */
+
+            /* Start Fighting the Boss */
+
+            /* After Boss is Died */
+
+            if (BossisDied)
+            {
+                MostInnerDoor.SetActive(false);                        /* Open the Door */
+                MostInnerMazeAnimator.SetBool("Stand",true);           /* Stop Rotating the Maze */
+                ReturnToMaze = false;
+
+                /*Game Ends Here*/ 
+
+                /* Add Some UI  ( IT TAKES ONE !) */ 
+            }  
 
             
 
