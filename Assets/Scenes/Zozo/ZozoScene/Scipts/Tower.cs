@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
     public GameObject ShootingPoint;
     public GameObject ShootingPoint2;
 
-
+    public ParticleSystem SmokeEffect;
     public float eulerAngle_y;
     public float eulerAngle_y_update;    
     public float angleDiff;
@@ -48,7 +48,7 @@ public class Tower : MonoBehaviour
 
          angleDiff = eulerAngle_y_update - eulerAngle_y ;
 
-        if ( distance <= TowerRadius && !Status.BotisDied && ( (angleDiff >=0f && angleDiff <=60f) || (angleDiff >=310f && angleDiff <=360f) ) )
+        if ( distance <= TowerRadius && !Status.BotisDied  ) //&& ( (angleDiff >=0f && angleDiff <=60f) || (angleDiff >=310f && angleDiff <=360f) )
         {
              FaceTarget();
              if(AttackFlag)
@@ -110,6 +110,7 @@ public class Tower : MonoBehaviour
             CurrentBullet = Instantiate (BulletPrefab,ShootingPoint.transform.position , ShootingPoint.transform.rotation);
             Rigidbody rb = CurrentBullet.GetComponent<Rigidbody>();
             rb.AddForce(direction * 40f );
+            SmokeEffect.Play();
             Destroy(CurrentBullet,3f);
             anim.SetBool("Attack",false);
     }
