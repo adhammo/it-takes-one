@@ -14,6 +14,12 @@ public class Buttons : MonoBehaviour
 
     public int objectid = 0;
 
+    public GameObject Mark;
+
+    void Start()
+    {
+        Mark.SetActive(false);
+    }
     
     void Update()
     {   
@@ -48,5 +54,6 @@ public class Buttons : MonoBehaviour
     public void ButtonSound()
     {
         ButtonSoundSource.PlayOneShot(clip);
+        Mark.SetActive(true);
     }
 }
