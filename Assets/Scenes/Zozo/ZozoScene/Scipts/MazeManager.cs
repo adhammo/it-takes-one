@@ -35,6 +35,8 @@ public class MazeManager : MonoBehaviour
 
     public BotStatus BossStatus;
 
+    CharacterController controller ;
+
     /* States Definition*/
     public enum State
     {
@@ -72,21 +74,12 @@ public class MazeManager : MonoBehaviour
 
             /* Start Fighting the Boss */
             Boss.SetActive(true);
+
+            controller = Player1.GetComponent<CharacterController>();
+            controller.enabled = false;
             Player1.transform.position = Point.transform.position;
+            controller.enabled = true;
 
-            /* After Boss is Died */
-
-            if (BossisDied)
-            {
-                MostInnerDoor.SetActive(false);                        /* Open the Door */
-                MostInnerMazeAnimator.SetBool("Stand",true);           /* Stop Rotating the Maze */
-                ReturnToMaze = false;
-
-                /*Game Ends Here*/ 
-                PlayerPrefs.SetInt("Level" , 4 );
-
-                /* Add Some UI  ( IT TAKES ONE !) */ 
-            }  
         }                  
     }
 
@@ -184,8 +177,6 @@ public class MazeManager : MonoBehaviour
 
                 /* Add Some UI  ( IT TAKES ONE !) */ 
             }  
-
-            
 
     }                          
 }
