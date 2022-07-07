@@ -17,6 +17,10 @@ public class SceneManager : MonoBehaviour
 
     public void Start()
     {
+        SetCursorState(cursorLocked);
+
+        if (blockade == null || bossCube == null) return;
+
         if (PlayerPrefs.GetInt("Level") != 2)
         {
             blockade.SetActive(false);

@@ -68,6 +68,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.30089986
+        functionName: BotisAttacking
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b6b6b1d277bd33247bec9ae12c8b080f,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.71460414
+        functionName: BotisNotAttacking
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b6b6b1d277bd33247bec9ae12c8b080f,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -35,6 +35,8 @@ public class MazeManager : MonoBehaviour
 
     public BotStatus BossStatus;
 
+    public GameObject BossPosition;
+
     CharacterController controller ;
 
     /* States Definition*/
@@ -74,6 +76,7 @@ public class MazeManager : MonoBehaviour
 
             /* Start Fighting the Boss */
             Boss.SetActive(true);
+            Boss.transform.position = BossPosition.transform.position;
 
             controller = Player1.GetComponent<CharacterController>();
             controller.enabled = false;
