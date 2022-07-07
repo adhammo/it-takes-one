@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AxeSpeed: 15
   AxeOffset: 2
+  PlayerAudio: {fileID: 0}
   AxeImpact: {fileID: 8300000, guid: 0af8f73af63745b4482d81a7cd0d5dea, type: 3}
   ThrowDamage: 80
   TravelDistanceSqr: 2500
