@@ -7,6 +7,21 @@ Puzzles and combat game based on cooperation theme.
 - Windows 10
 - Unity 2021.3.2f1
 
+## Story
+
+ -  Due to unfortunate events,  One of the two brothers is stuck in the future in a maze and tries to return to his brother who is also stuck in a different maze but in the past. Each of them faces different troubles in the labyrinth he confronts hoping he can survive to reach his brother.
+ 
+## Control
+
+ - Movement:  ( W A S D )                                   
+ - Speed: ( Shift )                                       
+ - Interaction: ( E )                                       
+ - Fight: ( L / R Mouse Click )
+ 
+## Download 
+
+ - https://drive.google.com/file/d/1pIiMsu9WowEEE2bQZfd4IironuOCo5fS/view
+
 ## ScreenShots
 
  - ![1](https://user-images.githubusercontent.com/68661639/178130039-43f1d444-0fb2-4ecd-a3e0-64fe0dfca7aa.JPG)
