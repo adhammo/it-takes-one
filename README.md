@@ -20,7 +20,7 @@ Puzzles and combat game based on cooperation theme.
  
 ## Download 
 
- - https://drive.google.com/file/d/1pIiMsu9WowEEE2bQZfd4IironuOCo5fS/view
+ - [Download Link](https://drive.google.com/file/d/1pIiMsu9WowEEE2bQZfd4IironuOCo5fS/view) 
 
 ## ScreenShots
 
