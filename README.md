@@ -7,6 +7,14 @@ Puzzles and combat game based on cooperation theme.
 - Windows 10
 - Unity 2021.3.2f1
 
+## ScreenShots
+
+ - ![1](https://user-images.githubusercontent.com/68661639/178130039-43f1d444-0fb2-4ecd-a3e0-64fe0dfca7aa.JPG)
+ - ![2](https://user-images.githubusercontent.com/68661639/178130043-f2ebc121-b565-402f-8367-8d013250de8f.JPG)
+
+
+
+
 ## Packages
 
 - URP
