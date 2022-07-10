@@ -4,7 +4,7 @@ Puzzles and combat game based on cooperation theme.
 
 ## Story
 
-The youngest of two brothers is stuck in a maze and tries to reunite with his older brother. Unforutenly his brother is also stuck in a maze but in the past. Each of them faces many different puzzles, monsters, and bosses to finally be together again.
+The youngest of two brothers is stuck in a maze and tries to reunite with his older brother. Unfortunately, his brother is also stuck in a maze but in the past. Each of them faces many different puzzles, monsters, and bosses to finally be together again.
  
 ## Controls
 
