@@ -9,10 +9,19 @@ Puzzles and combat game based on cooperation theme.
 
 ## ScreenShots
 
- - 
-   ![1](https://user-images.githubusercontent.com/68661639/178130039-43f1d444-0fb2-4ecd-a3e0-64fe0dfca7aa.JPG)
- - 
-   ![2](https://user-images.githubusercontent.com/68661639/178130043-f2ebc121-b565-402f-8367-8d013250de8f.JPG)
+ - ![1](https://user-images.githubusercontent.com/68661639/178130039-43f1d444-0fb2-4ecd-a3e0-64fe0dfca7aa.JPG)
+ - ![2](https://user-images.githubusercontent.com/68661639/178130043-f2ebc121-b565-402f-8367-8d013250de8f.JPG)
+ - ![3](https://user-images.githubusercontent.com/68661639/178130056-53e00b69-d10d-4826-81b3-4583fb61426c.JPG)
+ - ![4](https://user-images.githubusercontent.com/68661639/178130060-98d8d124-d342-4bd0-8a79-8b5c66c83f61.JPG)
+ - ![5](https://user-images.githubusercontent.com/68661639/178130061-ea0159f7-2658-44cb-b962-f1a9d2efa0a7.JPG)
+ - ![6](https://user-images.githubusercontent.com/68661639/178130062-e394023a-a0e7-490f-9a73-52812a2f9907.JPG)
+ - ![7](https://user-images.githubusercontent.com/68661639/178130064-d1401db8-37c1-41b1-80f2-46388037541f.jpg)
+ - ![8](https://user-images.githubusercontent.com/68661639/178130066-09f0a196-07f7-4eb9-b66a-c967cd0013ba.jpg)
+ - ![9](https://user-images.githubusercontent.com/68661639/178130068-8e590854-21cf-4c1a-8fc2-a8f4ccd9ec24.jpg)
+ - ![10](https://user-images.githubusercontent.com/68661639/178130070-45926784-aedd-4865-885d-a4c07540ea99.jpg)
+ - ![11](https://user-images.githubusercontent.com/68661639/178130071-4ce05ec6-b4d5-4026-a924-4aa43d4359a7.jpg)
+
+
 
 
 
