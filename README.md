@@ -1,6 +1,10 @@
 # It Takes One
 
-Puzzles and combat game based on cooperation theme.
+Our contribution to the [Egyptian Indie Games Festival (EIGF)](https://www.facebook.com/EIGF.ORG/).
+
+## Genre
+
+Puzzles, platformer, and ranged/melee combat FPS game based on Cooperation theme. 
 
 ## Story
 
@@ -31,6 +35,8 @@ You can download the game from this [Google Drive Link](https://drive.google.com
 ![9](https://user-images.githubusercontent.com/68661639/178130068-8e590854-21cf-4c1a-8fc2-a8f4ccd9ec24.jpg)  
 ![10](https://user-images.githubusercontent.com/68661639/178130070-45926784-aedd-4865-885d-a4c07540ea99.jpg)  
 ![11](https://user-images.githubusercontent.com/68661639/178130071-4ce05ec6-b4d5-4026-a924-4aa43d4359a7.jpg)  
+
+# Development
 
 ## Ideas
 
