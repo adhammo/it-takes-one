@@ -1,6 +1,6 @@
 # It Takes One
 
-Our contribution to the [Egyptian Indie Games Festival (EIGF)](https://www.facebook.com/EIGF.ORG/).
+Our contribution to the [Egyptian Indie Games Festival (EIGF)](https://www.facebook.com/EIGF.ORG/). Check some gameplay footage [here](https://www.youtube.com/watch?v=JkDKXXh3G2g&feature=youtu.be).
 
 ## Genre
 
